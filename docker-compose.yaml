@@ -48,12 +48,15 @@ services:
       - ./volumes/redis:/data
   rabbitmq:
     container_name: rabbitmq
-    image: rabbitmq:3
+    image: rabbitmq:3-management
     environment:
       RABBITMQ_DEFAULT_USER: doba
       RABBITMQ_DEFAULT_PASS: dobadov3333
     restart: always
     ports:
       - "5672:5672"
+      - "5671:5671"
+      - "4369:4369"
+      - "15672:15672"
     volumes:
       - ./volumes/mq:/var/lib/rabbitmq
