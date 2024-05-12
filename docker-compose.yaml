@@ -60,3 +60,11 @@ services:
       - "15672:15672"
     volumes:
       - ./volumes/mq:/var/lib/rabbitmq
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins:jdk17
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./volumes/jenkins:/var/jenkins_home
